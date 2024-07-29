@@ -3,40 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sandeep Jangra</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>Welcome to My Portfolio</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#work-experience">Work Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Hello! I am a software engineer with a passion for coding and technology...</p>
+
+    <section id="home" class="section">
+        <h1>Hi! I am Sandeep</h1>
+        <p>I am a software engineer with a passion for coding and technology. I have expertise in building distributed systems and web services with technologies like python, golang, redis, rabbitmq etc.</p>
     </section>
-    <section id="projects">
-        <h2>Projects</h2>
-        <ul>
-	    <li>DICOM Image de-identification Pipeline</li>
-            <li>Backend service and data ingestion pipeline for RNA sequencing data</li>
-            <li>NLU service for voice controlled STBs (Tivo)</li>
-        </ul>
+
+    <section id="work-experience" class="section">
+        <h2>Work Experience</h2>
+        <div class="project-list">
+            <div class="project-item">
+                <h3>DICOM image de-identification</h3>
+                <p>While working with nference I contributed in developing the data ingestion pipeline for de-identifying DICOM images. The project consisted of handling millions of images and Petabytes of data using a cluster of GPU and CPU servers</p>
+            </div>
+            <div class="project-item">
+                <h3>RNA Explorer</h3>
+                <p>Worked on the golang service to serve RNA study data. also worked on the data ingestion pipeline for RNA-sequencing data</p>
+            </div>
+        </div>
     </section>
-    <section id="skills">
-        <h2>Skills</h2>
-        <ul>
-            <li>Python</li>
-            <li>GoLang</li>
-            <li>Rust</li>
-            <li>Distributed Systems</li>
-            <li>Rabbitmq</li>
-        </ul>
-    </section>
-    <section id="contact">
+
+    <section id="contact" class="section">
         <h2>Contact</h2>
-        <p>Email: jangra.1202@gmail.com</p>
-	<p><a href="https://www.linkedin.com/in/sandeepjangra">Linkedin: Sandeep Jangra</a></p>
+        <p class="contact">
+            <a class="external-link" href="mailto:jangra.1202@gmail.com">jangra.1202@gmail.com</a>
+        </p>
+        <a href="https://www.linkedin.com/in/sandeepjangra">Linkedin - Sandeep Jangra</a>
     </section>
+
+    <footer>
+        <p>&copy; 2024 My Portfolio. All rights reserved.</p>
+    </footer>
+
+    <script src="index.js"></script>
 </body>
 </html>
-
