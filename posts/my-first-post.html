@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Post: Setting Up a Frictionless Writing Platform — Sandeep Jangra</title>
+    <meta name="description" content="A guide on how this simple, static portfolio was built to optimize for high-speed writing with zero build friction.">
+    <link rel="stylesheet" href="../style.css">
+    <!-- Inline script to prevent theme flashing on load -->
+    <script>
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.setAttribute('data-theme', savedTheme || (prefersDark ? 'dark' : 'light'));
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <a href="../index.html">sandeep jangra</a>
+            </div>
+            <nav>
+                <a href="../index.html#writing">Writing</a>
+                <a href="../index.html#about">About</a>
+                <a href="../index.html#contact">Contact</a>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                    <!-- Icon loaded via JS -->
+                </button>
+            </nav>
+        </header>
+
+        <main>
+            <a href="../index.html" class="article-back">← Back to home</a>
+            
+            <article>
+                <header class="article-header">
+                    <h1 class="article-title">First Post: Setting Up a Frictionless Writing Platform</h1>
+                    <div class="article-meta">June 29, 2026 • 2 min read</div>
+                </header>
+
+                <p>
+                    For years, I had a placeholder portfolio page that gathered digital dust. 
+                    I wanted to write more, but the friction of maintaining a complex blogging setup—managing static site generator upgrades, configuring node modules, or tweaking Tailwind configuration files—frequently stopped me before I even started.
+                </p>
+
+                <p>
+                    This is a new start. I have redesigned this site to be as close to a 2000s programmer-essayist style page as possible: simple, text-centric, fast, and completely free of build steps.
+                </p>
+
+                <h2>How this platform works</h2>
+                <p>
+                    Writing a new post is as simple as:
+                </p>
+                <ol style="line-height: 1.6; margin-bottom: 1.5rem;">
+                    <li>Copying this HTML file (e.g., to <code>posts/my-new-essay.html</code>).</li>
+                    <li>Updating the title, meta tags, and writing standard HTML elements like headers, lists, and paragraphs.</li>
+                    <li>Adding the post link to the list in <code>index.html</code>.</li>
+                    <li>Running <code>git commit</code> and pushing to GitHub.</li>
+                </ol>
+
+                <blockquote>
+                    "The best writing setup is the one that stays completely out of your way."
+                </blockquote>
+
+                <h2>Rich Text & Code Formatting</h2>
+                <p>
+                    Because this is a developer site, clean code formatting is a first-class citizen. Here is an example of inline code like <code>const x = 42</code>, and a standard pre-formatted block below:
+                </p>
+
+<pre><code>// A simple, pure CSS/JS theme toggler
+const themeToggleBtn = document.getElementById('theme-toggle');
+themeToggleBtn.addEventListener('click', () => {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
+});</code></pre>
+
+                <p>
+                    By keeping the HTML clean and leveraging semantic tags, the reader's attention remains exactly where it belongs: on the ideas.
+                </p>
+            </article>
+
+            <hr>
+            
+            <p style="font-size: 0.95rem; font-style: italic; color: var(--text-muted);">
+                You can replace the contents of this file with your own article. To publish another article, duplicate this file in the <code>posts/</code> directory, update its content, and link to it from <code>index.html</code>.
+            </p>
+        </main>
+
+        <footer>
+            <span>© 2026 Sandeep Jangra</span>
+            <span><a href="../index.html">Home</a></span>
+        </footer>
+    </div>
+
+    <script src="../index.js"></script>
+</body>
+</html>

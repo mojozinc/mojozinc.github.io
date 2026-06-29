@@ -1,0 +1,10 @@
+when writing code, you are constantly solving local problems with a global scope in mind.
+there are multiple feedback loops running sub-consciously, it is akin to painting, you cannot imagine the final image without putting the brush to paper first. the act of doing closes a loop that is essential to forming the image itself.
+this is not a new observation, Polanyi called it tacit knowledge, Schön called it reflection-in-action. the knowing is in the doing.
+agentic coding breaks this. it expects you to front-load all decisions, which is hard if not impossible. and in practice it gets away with this because most problem spaces don't require much taste, there are only a few ways to do things correctly.
+taste is the residual after agentic coding saturates the low-variance problem space.
+
+agentic coding seems to be eating the lunch of the software engineer, it is an aberration in the description of a software engineer. following an 80-20 rule, pre-LLMs 80% was the fluff we had to bear to deliver the actual 20% — glue code, boilerplate, environment management, broken builds, broken pipelines, documentation, technical writing, Q&A.
+agentic coding is able to easily eat away at the 80% fluff, which makes it seem like it is replacing most of the job. but as systems mature, the old 20% should take a front seat, enabling engineers to put 80% effort into the gap that LLMs are unable to cover — the remaining 20% will be agent orchestration.
+what will the 80% look like — effort needed to understand systems, to carry on and design experiments, to close the gap between technical and business value.
+

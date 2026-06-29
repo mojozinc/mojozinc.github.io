@@ -3,55 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sandeep Jangra</title>
+    <title>Sandeep Jangra — Writing & Software</title>
+    <meta name="description" content="Personal website and writing platform of Sandeep Jangra, a software engineer specialized in distributed systems.">
     <link rel="stylesheet" href="style.css">
+    <!-- Inline script to prevent theme flashing on load -->
+    <script>
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.setAttribute('data-theme', savedTheme || (prefersDark ? 'dark' : 'light'));
+    </script>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#work-experience">Work Experience</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section id="home" class="section">
-        <h1>Hi! I am Sandeep</h1>
-        <p>I am a software engineer with a passion for coding and technology. I have expertise in building distributed systems and web services with technologies like python, golang, redis, rabbitmq etc.</p>
-    </section>
-
-    <section id="work-experience" class="section">
-        <h2>Work Experience</h2>
-        <div class="project-list">
-            <div class="project-item">
-                <h3>DICOM image de-identification</h3>
-                <p>At nference, I played a key role in developing a 
-                    data ingestion pipeline for de-identifying DICOM images. 
-                    The project involved processing millions of images and 
-                    managing petabytes of data using 
-                    a sophisticated cluster of GPU and CPU servers.</p>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <a href="index.html">sandeep jangra</a>
             </div>
-            <div class="project-item">
-                <h3>RNA Explorer</h3>
-                <p>Worked on a Go service to serve RNA study data and 
-                    developed a data ingestion pipeline for RNA-sequencing data.</p>
-            </div>
-        </div>
-    </section>
+            <nav>
+                <a href="#writing">Writing</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                    <!-- Icon loaded via JS -->
+                </button>
+            </nav>
+        </header>
 
-    <section id="contact" class="section">
-        <h2>Contact</h2>
-        <p class="contact">
-            <a class="external-link" href="mailto:jangra.1202@gmail.com">jangra.1202@gmail.com</a>
-        </p>
-        <a href="https://www.linkedin.com/in/sandeepjangra">Linkedin - Sandeep Jangra</a>
-    </section>
+        <main>
+            <section class="intro">
+                <p>
+                    I'm a software engineer building distributed systems and high-throughput data pipelines. 
+                    I write about engineering, craft, and the mechanics of large-scale infrastructure.
+                </p>
+            </section>
 
-    <!-- <footer>
-        <p>&copy; 2024 My Portfolio. All rights reserved.</p>
-    </footer> -->
+            <section id="writing" class="portfolio-section">
+                <h2 class="section-title">Writing</h2>
+                <ul class="post-list">
+                    <li class="post-item">
+                        <span class="post-meta">2026-06-29</span>
+                        <span class="post-title">
+                            <a href="posts/code-ki-aisi-ki-taisi.html" style="text-transform: lowercase;">code ki aisi ki taisi</a>
+                        </span>
+                    </li>
+                </ul>
+            </section>
+
+            <section id="about" class="portfolio-section">
+                <h2 class="section-title">Experience & Projects</h2>
+                
+                <div class="job-item">
+                    <div class="job-title-row">
+                        <span class="job-title">DICOM Image De-Identification</span>
+                        <span class="job-date">nference</span>
+                    </div>
+                    <div class="job-description">
+                        Developed a distributed data ingestion pipeline for de-identifying DICOM medical imaging. 
+                        Processed millions of images and managed petabytes of patient data across heterogeneous GPU/CPU compute clusters.
+                    </div>
+                </div>
+
+                <div class="job-item">
+                    <div class="job-title-row">
+                        <span class="job-title">RNA Explorer</span>
+                        <span class="job-date">nference</span>
+                    </div>
+                    <div class="job-description">
+                        Built a high-performance Go microservice to query and serve RNA study datasets. Designed and implemented 
+                        the supporting data ingestion pipeline for bulk RNA-sequencing results.
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact" class="portfolio-section">
+                <h2 class="section-title">Contact</h2>
+                <p>
+                    Reach out if you'd like to collaborate or chat about systems engineering.
+                </p>
+                <p style="font-family: 'JetBrains Mono', monospace; font-size: 0.95rem;">
+                    Email: <a href="mailto:jangra.1202@gmail.com">jangra.1202@gmail.com</a><br>
+                    LinkedIn: <a href="https://www.linkedin.com/in/sandeepjangra" target="_blank" rel="noopener noreferrer">sandeepjangra</a>
+                </p>
+            </section>
+        </main>
+
+        <footer>
+            <span>© 2026 Sandeep Jangra</span>
+            <span>Built simply with HTML & CSS</span>
+        </footer>
+    </div>
 
     <script src="index.js"></script>
 </body>
