@@ -1,59 +1,98 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+/* ==========================================================================
+   THEME & DESIGN SYSTEM TOKENS
+   Easily customize the entire portfolio by adjusting the tokens below.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
 
 :root {
-    /* Light Mode Palette - Warm Sepia/Cream */
+    /* Typography Tokens */
+    --font-serif: 'Lora', Georgia, 'Times New Roman', serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    
+    --font-size-base: 1.08rem;
+    --line-height-base: 1.68;
+    
+    /* Layout Tokens */
+    --max-width: 680px;
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --transition-fast: 0.15s ease;
+    --transition-theme: 0.3s ease;
+
+    /* Light Theme Palette - Warm Sepia / Cream / Academic Minimalist */
     --bg: #fbfaf7;
     --bg-card: #f3efe9;
+    --bg-card-hover: #ebe5dc;
     --text: #2e2c2b;
     --text-muted: #706b68;
+    --text-faint: #9c9692;
     --primary: #9b4d00;
     --primary-hover: #c46200;
     --border: #e6e0d5;
+    --border-dashed: #dcd4c6;
     --code-bg: #f4f0e8;
     --selection-bg: #f2e2cf;
+    --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.03);
+    --shadow-hover: 0 4px 14px rgba(0, 0, 0, 0.07);
 }
 
 [data-theme="dark"] {
-    /* Dark Mode Palette - Deep Ink & Warm Accent */
+    /* Dark Theme Palette - Deep Ink & Warm Amber */
     --bg: #121214;
-    --bg-card: #1c1c1f;
+    --bg-card: #1a1a1d;
+    --bg-card-hover: #222226;
     --text: #e2e1e6;
     --text-muted: #9c9a9f;
+    --text-faint: #67656c;
     --primary: #ff9d3b;
     --primary-hover: #ffb466;
     --border: #2c2c30;
+    --border-dashed: #38383e;
     --code-bg: #1c1c1f;
     --selection-bg: #3d2c1c;
+    --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.25);
+    --shadow-hover: 0 4px 16px rgba(0, 0, 0, 0.45);
 }
 
-/* Global Reset & Base */
+/* ==========================================================================
+   GLOBAL RESET & BASE
+   ========================================================================== */
+
 * {
     box-sizing: border-box;
 }
 
 html {
     scroll-behavior: smooth;
+    font-size: 16px;
 }
 
 body {
-    font-family: 'Lora', Georgia, serif;
-    font-size: 1.1rem;
-    line-height: 1.65;
+    font-family: var(--font-serif);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
     color: var(--text);
     background-color: var(--bg);
     margin: 0;
     padding: 0;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color var(--transition-theme), color var(--transition-theme);
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {
     background-color: var(--selection-bg);
 }
 
-/* Typographic Defaults */
+/* ==========================================================================
+   TYPOGRAPHY
+   ========================================================================== */
+
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: var(--font-mono);
     font-weight: 600;
     line-height: 1.25;
     margin-top: 1.5em;
@@ -66,10 +105,10 @@ h1 {
 }
 
 h2 {
-    font-size: 1.4rem;
+    font-size: 1.35rem;
     border-bottom: 1px solid var(--border);
-    padding-bottom: 0.3em;
-    margin-top: 2em;
+    padding-bottom: 0.35em;
+    margin-top: 2.2rem;
 }
 
 h3 {
@@ -79,7 +118,7 @@ h3 {
 a {
     color: var(--primary);
     text-decoration: none;
-    transition: color 0.15s ease;
+    transition: color var(--transition-fast);
 }
 
 a:hover {
@@ -93,14 +132,26 @@ p {
     margin-bottom: 1.25rem;
 }
 
-/* Layout */
+hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2.5rem 0;
+}
+
+/* ==========================================================================
+   LAYOUT
+   ========================================================================== */
+
 .container {
-    max-width: 680px;
+    max-width: var(--max-width);
     margin: 0 auto;
     padding: 2rem 1.5rem 6rem;
 }
 
-/* Header & Navigation */
+/* ==========================================================================
+   HEADER & NAVIGATION
+   ========================================================================== */
+
 header {
     display: flex;
     justify-content: space-between;
@@ -111,7 +162,7 @@ header {
 }
 
 .logo {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: var(--font-mono);
     font-weight: 600;
     font-size: 1.1rem;
 }
@@ -130,14 +181,20 @@ nav {
     gap: 1.5rem;
 }
 
-nav a {
-    font-family: 'JetBrains Mono', monospace;
+nav a, .nav-link {
+    font-family: var(--font-mono);
     font-size: 0.9rem;
     color: var(--text-muted);
+    transition: color var(--transition-fast);
 }
 
-nav a:hover {
+nav a:hover, .nav-link:hover {
     color: var(--text);
+}
+
+.nav-link.active, nav a.active {
+    color: var(--text);
+    font-weight: 600;
 }
 
 /* Theme Toggle Button */
@@ -145,13 +202,13 @@ nav a:hover {
     background: none;
     border: none;
     cursor: pointer;
-    padding: 4px;
+    padding: 5px;
     color: var(--text-muted);
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    transition: color 0.15s ease;
-    border-radius: 4px;
+    transition: color var(--transition-fast), background-color var(--transition-fast);
+    border-radius: var(--radius-sm);
 }
 
 .theme-toggle:hover {
@@ -160,13 +217,17 @@ nav a:hover {
 }
 
 .theme-toggle svg {
-    width: 20px;
-    height: 20px;
+    width: 19px;
+    height: 19px;
+    display: block;
 }
 
-/* Intro Section */
+/* ==========================================================================
+   INTRO & SECTION HEADERS
+   ========================================================================== */
+
 .intro {
-    margin-bottom: 4rem;
+    margin-bottom: 3.5rem;
 }
 
 .intro p {
@@ -174,9 +235,8 @@ nav a:hover {
     line-height: 1.7;
 }
 
-/* Essay List */
 .section-title {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: var(--font-mono);
     text-transform: uppercase;
     font-size: 0.85rem;
     letter-spacing: 0.1em;
@@ -186,18 +246,26 @@ nav a:hover {
     padding: 0;
 }
 
+.portfolio-section {
+    margin-bottom: 3.5rem;
+}
+
+/* ==========================================================================
+   POSTS & TEASER LISTINGS (HOME & WRITING)
+   ========================================================================== */
+
 .post-list {
     list-style: none;
     padding: 0;
-    margin: 0 0 4rem;
+    margin: 0 0 3.5rem;
 }
 
 .post-item {
     display: flex;
     align-items: baseline;
     justify-content: space-between;
-    padding: 0.75rem 0;
-    border-bottom: 1px dashed var(--border);
+    padding: 0.8rem 0;
+    border-bottom: 1px dashed var(--border-dashed);
 }
 
 .post-item:last-child {
@@ -205,7 +273,7 @@ nav a:hover {
 }
 
 .post-meta {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: var(--font-mono);
     font-size: 0.85rem;
     color: var(--text-muted);
     white-space: nowrap;
@@ -218,31 +286,229 @@ nav a:hover {
     flex-grow: 1;
 }
 
-/* Post Styling & Article Elements */
+/* ==========================================================================
+   EXPERIENCE SECTION
+   ========================================================================== */
+
+.job-item {
+    margin-bottom: 2.25rem;
+}
+
+.job-item:last-child {
+    margin-bottom: 0;
+}
+
+.job-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 0.4rem;
+}
+
+.job-title {
+    font-family: var(--font-mono);
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text);
+}
+
+.job-date {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+}
+
+.job-description {
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--text);
+    opacity: 0.92;
+}
+
+.job-description p {
+    margin-bottom: 0.5rem;
+}
+
+.job-description p:last-child {
+    margin-bottom: 0;
+}
+
+/* ==========================================================================
+   PROJECT CARDS & GRID (projects.html)
+   ========================================================================== */
+
+.project-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+    margin: 2rem 0 3.5rem;
+}
+
+.project-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    transition: transform var(--transition-fast), border-color var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast);
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: var(--text);
+    box-shadow: var(--shadow-card);
+}
+
+.project-card:hover {
+    background-color: var(--bg-card-hover);
+    border-color: var(--primary);
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+.project-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.75rem;
+    margin-bottom: 0.6rem;
+    flex-wrap: wrap;
+}
+
+.project-card-title {
+    font-family: var(--font-mono);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.project-card-title a {
+    color: var(--text);
+    text-decoration: none;
+}
+
+.project-card:hover .project-card-title a,
+.project-card:hover .project-card-title {
+    color: var(--primary);
+}
+
+.project-card-date {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.project-card-desc {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text);
+    opacity: 0.92;
+    margin-bottom: 1.25rem;
+}
+
+.project-card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: auto;
+}
+
+.project-tag {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    background-color: var(--code-bg);
+    color: var(--text-muted);
+    padding: 0.2rem 0.5rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+}
+
+.project-card-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1.25rem;
+    padding-top: 0.85rem;
+    border-top: 1px dashed var(--border-dashed);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+}
+
+.project-card-link-primary {
+    font-weight: 500;
+    color: var(--primary);
+}
+
+.project-card-link-ext {
+    color: var(--text-muted);
+}
+
+.project-card-link-ext:hover {
+    color: var(--primary);
+}
+
+/* ==========================================================================
+   BADGES & STATUS PILLS
+   ========================================================================== */
+
+.badge {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.15rem 0.45rem;
+    border-radius: var(--radius-sm);
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 0.4rem;
+}
+
+.badge-wip {
+    background-color: var(--selection-bg);
+    color: var(--primary);
+    border: 1px solid var(--primary);
+}
+
+.badge-tag {
+    background-color: var(--code-bg);
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+}
+
+/* ==========================================================================
+   ARTICLE & ESSAY PAGES (posts/*.html & projects/*.html)
+   ========================================================================== */
+
 article {
     margin-bottom: 4rem;
 }
 
 .article-header {
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
 }
 
 .article-title {
-    font-family: 'Lora', Georgia, serif;
+    font-family: var(--font-serif);
     font-size: 2.2rem;
     font-weight: 600;
     line-height: 1.2;
     margin-bottom: 0.5rem;
+    margin-top: 0;
 }
 
 .article-meta {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: var(--font-mono);
     font-size: 0.85rem;
     color: var(--text-muted);
 }
 
 .article-back {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: var(--font-mono);
     font-size: 0.85rem;
     display: inline-flex;
     align-items: center;
@@ -250,7 +516,7 @@ article {
     margin-bottom: 2.5rem;
 }
 
-/* Structured Elements for Essays */
+/* Structured Article Elements */
 blockquote {
     border-left: 3px solid var(--primary);
     margin: 1.5rem 0;
@@ -260,18 +526,18 @@ blockquote {
 }
 
 code {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.9rem;
+    font-family: var(--font-mono);
+    font-size: 0.88rem;
     background-color: var(--code-bg);
-    padding: 0.15rem 0.3rem;
-    border-radius: 3px;
+    padding: 0.15rem 0.35rem;
+    border-radius: var(--radius-sm);
     border: 1px solid var(--border);
 }
 
 pre {
     background-color: var(--code-bg);
-    padding: 1rem;
-    border-radius: 6px;
+    padding: 1rem 1.25rem;
+    border-radius: var(--radius-md);
     overflow-x: auto;
     border: 1px solid var(--border);
     margin: 1.5rem 0;
@@ -285,60 +551,97 @@ pre code {
     line-height: 1.5;
 }
 
-hr {
-    border: none;
-    border-top: 1px solid var(--border);
-    margin: 2.5rem 0;
+/* Project Detail Meta Box */
+.project-meta-box {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 1rem 1.25rem;
+    margin: 1.5rem 0 2rem;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
 }
 
-/* Portfolio/About Details */
-.portfolio-section {
-    margin-bottom: 3rem;
-}
-
-.job-item {
-    margin-bottom: 1.5rem;
-}
-
-.job-title-row {
+.project-meta-row {
     display: flex;
-    justify-content: space-between;
-    align-items: baseline;
+    gap: 0.75rem;
+    margin-bottom: 0.4rem;
 }
 
-.job-title {
-    font-family: 'JetBrains Mono', monospace;
-    font-weight: 600;
-    font-size: 0.95rem;
+.project-meta-row:last-child {
+    margin-bottom: 0;
+}
+
+.project-meta-label {
+    color: var(--text-muted);
+    min-width: 90px;
+}
+
+.project-meta-val {
     color: var(--text);
 }
 
-.job-date {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.85rem;
-    color: var(--text-muted);
+/* Media, Images & Figure Styles */
+figure {
+    margin: 1.5rem 0;
+    padding: 0;
 }
 
-.job-description {
-    font-size: 0.95rem;
-    color: var(--text-muted);
-    margin-top: 0.25rem;
-    line-height: 1.5;
+figure img, .project-image {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+    background-color: var(--code-bg);
+    display: block;
 }
 
-/* Footer styling */
+figcaption {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+.project-images-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+    margin: 1.25rem 0;
+}
+
+.project-preview-block {
+    margin: 1.5rem 0;
+}
+
+.project-preview-block pre {
+    margin: 0;
+    font-size: 0.8rem;
+    line-height: 1.35;
+    overflow-x: auto;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+
 footer {
     border-top: 1px solid var(--border);
     padding-top: 1.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: var(--font-mono);
     font-size: 0.8rem;
     color: var(--text-muted);
 }
 
-/* Responsive adjustments */
+/* ==========================================================================
+   RESPONSIVE ADJUSTMENTS
+   ========================================================================== */
+
 @media (max-width: 600px) {
     .container {
         padding: 1rem 1rem 4rem;
@@ -346,6 +649,10 @@ footer {
     
     header {
         margin-bottom: 2rem;
+    }
+    
+    nav {
+        gap: 1rem;
     }
     
     .post-item {
@@ -362,5 +669,16 @@ footer {
         flex-direction: column;
         align-items: flex-start;
         gap: 0.1rem;
+    }
+    
+    .project-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+    
+    .project-meta-row {
+        flex-direction: column;
+        gap: 0.15rem;
     }
 }

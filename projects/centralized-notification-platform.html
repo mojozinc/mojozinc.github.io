@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centralized Notification Platform — Sandeep Jangra</title>
+    <meta name="description" content="A collaborative notification infrastructure managing permissions, mentions, and delivery channels.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../style.css">
+    <!-- Inline script to prevent theme flashing on load -->
+    <script>
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.setAttribute('data-theme', savedTheme || (prefersDark ? 'dark' : 'light'));
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <a href="../index.html">sandeep jangra</a>
+            </div>
+            <nav>
+                <a href="../index.html#writing" class="nav-link">Writing</a>
+                <a href="../index.html#experience" class="nav-link">Experience</a>
+                <a href="../projects.html" class="nav-link active">Projects</a>
+                <a href="../index.html#contact" class="nav-link">Contact</a>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                    <!-- Icon loaded via JS -->
+                </button>
+            </nav>
+        </header>
+
+        <main>
+            <a href="../projects.html" class="article-back">← Back to Projects</a>
+            
+            <article>
+                <header class="article-header">
+                    <h1 class="article-title" style="text-transform: lowercase;">centralized notification platform</h1>
+                    <div class="article-meta">Distributed Systems • Sundial Hackathon → Production</div>
+                </header>
+
+                <div class="project-meta-box">
+                    <div class="project-meta-row">
+                        <span class="project-meta-label">Domain:</span>
+                        <span class="project-meta-val">Real-time Collaboration & Event Streaming</span>
+                    </div>
+                    <div class="project-meta-row">
+                        <span class="project-meta-label">Stack:</span>
+                        <span class="project-meta-val">TypeScript, Novu, Redis Queues, PostgreSQL, WebSockets</span>
+                    </div>
+                    <div class="project-meta-row">
+                        <span class="project-meta-label">Origin:</span>
+                        <span class="project-meta-val">Sundial Hackathon Champion → Core Production Service</span>
+                    </div>
+                </div>
+
+                <p>
+                    The <strong>Centralized Notification Platform</strong> is a unified event delivery and collaboration infrastructure built to power real-time comments, analytical dashboard sharing, metric alerts, and user mentions across the Sundial analytics platform.
+                </p>
+
+                <h2>From Hackathon to Production</h2>
+                <p>
+                    As collaborative analytics grew in Sundial, multiple product subsystems independently implemented fragmented notification logic—leading to duplicate emails, desynchronized unread badge counts, and edge cases around workspace access controls.
+                </p>
+                <p>
+                    During a 48-hour hackathon, we designed an event-driven architecture utilizing Novu as the multi-channel delivery core (in-app feed, email digests, and Slack integrations), paired with a centralized permission evaluation engine. Following its hackathon victory, we hardened and scaled the system into Sundial's tier-1 notification backbone.
+                </p>
+
+                <h2>Core Architecture</h2>
+                <ul>
+                    <li>
+                        <strong>Permission-Aware Dispatch:</strong> Every notification payload evaluates real-time workspace access policies, ensuring that users only receive alert updates or mention previews for dashboards and time-series cuts they are authorized to view.
+                    </li>
+                    <li>
+                        <strong>Debounced Digest Queues:</strong> High-frequency analytical threshold alerts and threaded comment discussions are automatically coalesced and debounced via Redis queues, preventing alert fatigue.
+                    </li>
+                    <li>
+                        <strong>Multi-Channel Routing:</strong> Dynamically routes events between in-app WebSocket banners, Slack webhooks, and asynchronous email digests based on explicit user notification preferences and online presence.
+                    </li>
+                </ul>
+            </article>
+        </main>
+
+        <footer>
+            <span>© 2026 Sandeep Jangra</span>
+            <span><a href="../projects.html">← All Projects</a></span>
+        </footer>
+    </div>
+
+    <script src="../index.js"></script>
+</body>
+</html>

@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sandeep Jangra — Writing & Software</title>
     <meta name="description" content="Personal website and writing platform of Sandeep Jangra, a software engineer specialized in distributed systems.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
     <!-- Inline script to prevent theme flashing on load -->
     <script>
@@ -20,9 +26,10 @@
                 <a href="index.html">sandeep jangra</a>
             </div>
             <nav>
-                <a href="#writing">Writing</a>
-                <a href="#about">About</a>
-                <a href="#contact">Contact</a>
+                <a href="#writing" class="nav-link">Writing</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="projects.html" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link">Contact</a>
                 <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
                     <!-- Icon loaded via JS -->
                 </button>
@@ -32,8 +39,8 @@
         <main>
             <section class="intro">
                 <p>
-                    I'm a software engineer building distributed systems and high-throughput data pipelines. 
-                    I write about engineering, craft, and the mechanics of large-scale infrastructure.
+                    I'm a software engineer building distributed systems, high-throughput data pipelines, and AI-assisted developer tooling. 
+                    I write about engineering craft, systems design, and the mechanics of large-scale infrastructure.
                 </p>
             </section>
 
@@ -49,30 +56,88 @@
                 </ul>
             </section>
 
-            <section id="about" class="portfolio-section">
-                <h2 class="section-title">Experience & Projects</h2>
+            <section id="experience" class="portfolio-section">
+                <div id="about"></div>
+                <h2 class="section-title">Experience</h2>
                 
                 <div class="job-item">
                     <div class="job-title-row">
-                        <span class="job-title">DICOM Image De-Identification</span>
-                        <span class="job-date">nference</span>
+                        <span class="job-title">Sundial — Software Engineer (L5)</span>
+                        <span class="job-date">2025 – 2026</span>
                     </div>
                     <div class="job-description">
-                        Developed a distributed data ingestion pipeline for de-identifying DICOM medical imaging. 
-                        Processed millions of images and managed petabytes of patient data across heterogeneous GPU/CPU compute clusters.
+                        Focused on analytical execution infrastructure and AI-assisted development systems. Architected the integration of Jupyter Enterprise Gateway (JEG) for secure, isolated Python kernel spawning per session, and refactored core Insights algorithms into reusable time-series abstractions. Pioneered team-wide AI-native workflows—building MCP pipelines across GitHub, Linear, and Notion, and introducing SQL snapshot testing to provide deterministic guardrails against LLM code regressions.
                     </div>
                 </div>
 
                 <div class="job-item">
                     <div class="job-title-row">
-                        <span class="job-title">RNA Explorer</span>
-                        <span class="job-date">nference</span>
+                        <span class="job-title">nference — Staff & Senior Software Engineer</span>
+                        <span class="job-date">2021 – 2024</span>
                     </div>
                     <div class="job-description">
-                        Built a high-performance Go microservice to query and serve RNA study datasets. Designed and implemented 
-                        the supporting data ingestion pipeline for bulk RNA-sequencing results.
+                        Built distributed, privacy-critical data infrastructure for biomedical AI. Architected high-throughput de-identification pipelines capable of ingesting 80TB of DICOM metadata in 7 days across private compute clusters, optimized via asynchronous IO queues and process-level parallelism. Later guided the team in expanding pipelines to multi-modal imaging (CT, PT, MR) and standardizing deployment workflows.
                     </div>
                 </div>
+
+                <div class="job-item">
+                    <div class="job-title-row">
+                        <span class="job-title">TiVo / Xperi — Senior & Software Engineer</span>
+                        <span class="job-date">2018 – 2021</span>
+                    </div>
+                    <div class="job-description">
+                        Worked on conversational NLU backends and developer infrastructure. Spearheaded the containerization of monolithic services into Docker—substantially reducing EC2 costs—and authored <code>krocker-compose</code>, an internal CLI tool that streamlined local NLU service orchestration for engineering and QA. Integrated Data Version Control (DVC) to bring reproducible versioning to model training pipelines.
+                    </div>
+                </div>
+
+                <div class="job-item">
+                    <div class="job-title-row">
+                        <span class="job-title">Kony — Software Development Engineer</span>
+                        <span class="job-date">2016 – 2018</span>
+                    </div>
+                    <div class="job-description">
+                        Developed lightweight dialogue management architectures for conversational chatbots, and engineered core visual component-authoring features (Component Builder & Target Containers) for Kony Visualizer V8.
+                    </div>
+                </div>
+            </section>
+
+            <section id="projects" class="portfolio-section">
+                <h2 class="section-title">Projects</h2>
+                <ul class="post-list" style="margin-bottom: 2rem;">
+                    <li class="post-item">
+                        <span class="post-meta">Rust • Tooling</span>
+                        <span class="post-title">
+                            <a href="projects/agent-deck.html">agent-deck</a> <span class="badge badge-wip">WIP</span>
+                        </span>
+                    </li>
+                    <li class="post-item">
+                        <span class="post-meta">AI Infra</span>
+                        <span class="post-title">
+                            <a href="projects/mcp-agentic-pipeline.html">MCP Agentic Engineering Pipeline</a>
+                        </span>
+                    </li>
+                    <li class="post-item">
+                        <span class="post-meta">Dev Tooling</span>
+                        <span class="post-title">
+                            <a href="projects/krocker-compose.html">krocker-compose</a>
+                        </span>
+                    </li>
+                    <li class="post-item">
+                        <span class="post-meta">Distributed Systems</span>
+                        <span class="post-title">
+                            <a href="projects/centralized-notification-platform.html">Centralized Notification Platform</a>
+                        </span>
+                    </li>
+                    <li class="post-item">
+                        <span class="post-meta">Search & ML</span>
+                        <span class="post-title">
+                            <a href="projects/next-query-prediction.html">Next Query Prediction Engine</a>
+                        </span>
+                    </li>
+                </ul>
+                <p style="font-family: 'JetBrains Mono', monospace; font-size: 0.9rem;">
+                    <a href="projects.html">Explore all project cards & write-ups →</a>
+                </p>
             </section>
 
             <section id="contact" class="portfolio-section">

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>krocker-compose — Sandeep Jangra</title>
+    <meta name="description" content="A Python CLI orchestrator built on Docker and docker-compose for multi-service conversational NLU environments.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../style.css">
+    <!-- Inline script to prevent theme flashing on load -->
+    <script>
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.setAttribute('data-theme', savedTheme || (prefersDark ? 'dark' : 'light'));
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <a href="../index.html">sandeep jangra</a>
+            </div>
+            <nav>
+                <a href="../index.html#writing" class="nav-link">Writing</a>
+                <a href="../index.html#experience" class="nav-link">Experience</a>
+                <a href="../projects.html" class="nav-link active">Projects</a>
+                <a href="../index.html#contact" class="nav-link">Contact</a>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                    <!-- Icon loaded via JS -->
+                </button>
+            </nav>
+        </header>
+
+        <main>
+            <a href="../projects.html" class="article-back">← Back to Projects</a>
+            
+            <article>
+                <header class="article-header">
+                    <h1 class="article-title" style="text-transform: lowercase;">krocker-compose</h1>
+                    <div class="article-meta">Developer Tooling • Production CLI</div>
+                </header>
+
+                <div class="project-meta-box">
+                    <div class="project-meta-row">
+                        <span class="project-meta-label">Domain:</span>
+                        <span class="project-meta-val">Local Developer Tooling & Container Orchestration</span>
+                    </div>
+                    <div class="project-meta-row">
+                        <span class="project-meta-label">Stack:</span>
+                        <span class="project-meta-val">Python, Docker, docker-compose, Bash</span>
+                    </div>
+                    <div class="project-meta-row">
+                        <span class="project-meta-label">Context:</span>
+                        <span class="project-meta-val">TiVo / Xperi Engineering & QA Ecosystem</span>
+                    </div>
+                </div>
+
+                <p>
+                    <strong>krocker-compose</strong> is an internal developer CLI tool built to solve local orchestration friction for complex, microservice-based conversational Natural Language Understanding (NLU) platforms.
+                </p>
+
+                <h2>Background & The Problem</h2>
+                <p>
+                    At TiVo, conversational NLU pipelines consisted of dozens of interconnected services: dialogue management, entity extractors, semantic parsers, domain deciders, and knowledge graph indices. 
+                </p>
+                <p>
+                    Previously, running services locally for feature testing or QA verification required spinning up heavy monolithic EC2 instances or manually configuring dozens of environment variables, port mappings, and mock model weights. This slowed down developer feedback loops and bloated infrastructure costs.
+                </p>
+
+                <h2>The Solution</h2>
+                <p>
+                    <code>krocker-compose</code> abstracted the container orchestration into a declarative, single-command developer experience. Engineers could compose and spin up arbitrary topologies of services matching specific testing scenarios:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Profile-driven topology generation:</strong> Allowed developers to declare profiles (e.g. <code>sports-domain</code>, <code>movie-discovery</code>, or <code>full-e2e</code>) which synthesized optimal <code>docker-compose</code> manifests on the fly.
+                    </li>
+                    <li>
+                        <strong>Dynamic port & volume mapping:</strong> Handled model artifact caching and dynamic host port bindings to eliminate port collision across concurrent feature branches.
+                    </li>
+                    <li>
+                        <strong>Hot-reloading & local override:</strong> Let engineers mount local source trees into running containers with one flag, enabling sub-second code iteration cycles without rebuilding images.
+                    </li>
+                </ul>
+
+                <h2>Impact</h2>
+                <blockquote>
+                    Reduced developer onboarding and local environment bootstrap time from half a day to under two minutes, while enabling QA to run isolated regression suites locally without incurring cloud EC2 costs.
+                </blockquote>
+            </article>
+        </main>
+
+        <footer>
+            <span>© 2026 Sandeep Jangra</span>
+            <span><a href="../projects.html">← All Projects</a></span>
+        </footer>
+    </div>
+
+    <script src="../index.js"></script>
+</body>
+</html>

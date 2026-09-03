@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>agent-deck — Sandeep Jangra</title>
+    <meta name="description" content="Retro Winamp-inspired floating activity deck and multi-stream session monitor for AI coding agents.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../style.css">
+    <!-- Inline script to prevent theme flashing on load -->
+    <script>
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.setAttribute('data-theme', savedTheme || (prefersDark ? 'dark' : 'light'));
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <a href="../index.html">sandeep jangra</a>
+            </div>
+            <nav>
+                <a href="../index.html#writing" class="nav-link">Writing</a>
+                <a href="../index.html#experience" class="nav-link">Experience</a>
+                <a href="../projects.html" class="nav-link active">Projects</a>
+                <a href="../index.html#contact" class="nav-link">Contact</a>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                    <!-- Icon loaded via JS -->
+                </button>
+            </nav>
+        </header>
+
+        <main>
+            <a href="../projects.html" class="article-back">← Back to Projects</a>
+            
+            <article>
+                <header class="article-header">
+                    <h1 class="article-title" style="text-transform: lowercase;">🎛️ agent-deck</h1>
+                    <div class="article-meta">Active Development • Work in Progress <span class="badge badge-wip">WIP</span></div>
+                </header>
+
+                <div class="project-meta-box">
+                    <div class="project-meta-row">
+                        <span class="project-meta-label">Status:</span>
+                        <span class="project-meta-val">Active Development (v0.3)</span>
+                    </div>
+                    <div class="project-meta-row">
+                        <span class="project-meta-label">Stack:</span>
+                        <span class="project-meta-val">Rust, egui / eframe, tokio, WSL2, tmux</span>
+                    </div>
+                    <div class="project-meta-row">
+                        <span class="project-meta-label">Source:</span>
+                        <span class="project-meta-val"><a href="https://github.com/mojozinc/agent-deck" target="_blank" rel="noopener noreferrer">github.com/mojozinc/agent-deck ↗</a></span>
+                    </div>
+                </div>
+
+                <p>
+                    <strong>agent-deck</strong> is a retro Winamp-inspired floating desktop activity deck and multi-stream session monitor designed for AI coding assistants (Gemini / Antigravity, Claude Code) running natively on Windows and inside WSL2 (with native <code>tmux</code> session inspection).
+                </p>
+
+                <h2>The Motivation</h2>
+                <p>
+                    As agentic coding tools have shifted from single chat prompts to asynchronous multi-agent orchestration, developers frequently run multiple background sessions across local terminals, WSL2 containers, and <code>tmux</code> panes. 
+                </p>
+                <p>
+                    Without a persistent HUD, it is easy to lose track of which agent is reasoning, which one is waiting on user input or confirmation, and which completed its execution. <code>agent-deck</code> brings back the tactile, compact elegance of late-90s floating media players to solve modern AI developer workflow visibility.
+                </p>
+
+                <figure>
+                    <img src="../images/agent-deck/preview.png" alt="agent-deck live screenshot" class="project-image" onerror="this.style.display='none'">
+                    <figcaption>agent-deck floating chassis on desktop</figcaption>
+                </figure>
+
+                <div class="project-preview-block">
+                    <pre><code>┌──────────────────────────────────────────────────────────────────[─][^][X]┐
+│ 🎛️ AGENT-DECK v0.3                                     [A-][A+]          │
+├───────────────────────────────────────────────────────────────────────────┤
+│   o Windows • 2       * clibox • 1                                        │
+├───────────────────────────────────────────────────────────────────────────┤
+│ ┌─ Gemini • clibox • tmux:backend:0.1 [EDIT] ──────── STEP 050 ─[▂▃▅▆]──┐ │
+│ │  INPUT REQUIRED: Confirm running migrations on postgres-dev [Y/n]     │ │
+│ └───────────────────────────────────────────────────────────────────────┘ │
+│ ┌─ Gemini • Activity Bridge Daemon Plan [EDIT] ────── STEP 074 ─[ ▂▃ ]──┐ │
+│ │  TOOL replace_file_content: Updating main.rs                          │ │
+│ └───────────────────────────────────────────────────────────────────────┘ │
+├───────────────────────────────────────────────────────────────────────────┤
+│ * 3 active • 1 requiring input       [EDIT] Rename • Drag corner to resize│
+└───────────────────────────────────────────────────────────────────────────┘</code></pre>
+                </div>
+
+                <h2>Key Features</h2>
+                <ul>
+                    <li>
+                        <strong>Dynamic Environment Discovery & Zero-Session Filtering:</strong> Auto-detects connected hosts (Windows, WSL2 distros like <code>clibox</code> or <code>ubuntu</code>). Environments with 0 active sessions automatically hide to minimize visual noise.
+                    </li>
+                    <li>
+                        <strong>Tactile Status LEDs & VU Equalizer:</strong> Visualizes agent states (emerald for reasoning, solid green for tool runs, amber for input required, cyan for done) with dancing 6-segment LED VU equalizers.
+                    </li>
+                    <li>
+                        <strong>Native <code>tmux</code> Inspection:</strong> Automatically extracts pane titles and coordinates from <code>tmux list-panes</code> inside WSL2.
+                    </li>
+                    <li>
+                        <strong>Smart Ticker Display:</strong> Smooth horizontal marquee that displays real-time tool arguments and streaming outputs, pausing instantly when human confirmation is needed.
+                    </li>
+                    <li>
+                        <strong>Session Semantic Renaming:</strong> Resolves smart titles using markdown headings and workspace basenames, with in-place <code>[EDIT]</code> controls persisted across restarts.
+                    </li>
+                    <li>
+                        <strong>Floating Window Chassis:</strong> Always-on-top, frameless draggable window with interactive font zoom (<code>A+</code>/<code>A-</code>) and responsive vertical resizing.
+                    </li>
+                </ul>
+
+                <h2>Architecture</h2>
+                <p>
+                    Organized as a modular Rust Cargo workspace:
+                </p>
+                <pre><code>agent-deck/
+├── Cargo.toml               # Workspace Coordinator
+├── Makefile                 # Unified Workspace Dev Commands
+├── Launch.bat               # Windows Launcher
+└── crates/
+    ├── agent-deck-core/     # Shared protocol (AgentState, SessionEvent)
+    ├── agent-deck-ui/       # Windows GUI (Rust + eframe/egui)
+    └── agent-deck-daemon/   # WSL2 Linux Bridge Daemon (tokio + tmux inspector)</code></pre>
+
+                <h2>Development & Local Build</h2>
+                <p>
+                    The project includes a unified <code>Makefile</code> for rapid local development across host boundaries:
+                </p>
+                <pre><code># Build and launch the Windows desktop widget
+make run-win
+
+# Run WSL2 bridge daemon in development mode
+make dev-wsl
+
+# Build release binaries across workspace
+make build</code></pre>
+
+            </article>
+        </main>
+
+        <footer>
+            <span>© 2026 Sandeep Jangra</span>
+            <span><a href="../projects.html">← All Projects</a></span>
+        </footer>
+    </div>
+
+    <script src="../index.js"></script>
+</body>
+</html>

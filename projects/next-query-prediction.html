@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Next Query Prediction Engine — Sandeep Jangra</title>
+    <meta name="description" content="A conversational search system modeling query sequences as probabilistic graph traversals.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../style.css">
+    <!-- Inline script to prevent theme flashing on load -->
+    <script>
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.setAttribute('data-theme', savedTheme || (prefersDark ? 'dark' : 'light'));
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <a href="../index.html">sandeep jangra</a>
+            </div>
+            <nav>
+                <a href="../index.html#writing" class="nav-link">Writing</a>
+                <a href="../index.html#experience" class="nav-link">Experience</a>
+                <a href="../projects.html" class="nav-link active">Projects</a>
+                <a href="../index.html#contact" class="nav-link">Contact</a>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                    <!-- Icon loaded via JS -->
+                </button>
+            </nav>
+        </header>
+
+        <main>
+            <a href="../projects.html" class="article-back">← Back to Projects</a>
+            
+            <article>
+                <header class="article-header">
+                    <h1 class="article-title" style="text-transform: lowercase;">next query prediction engine</h1>
+                    <div class="article-meta">Conversational Search • TiVo Hackathon</div>
+                </header>
+
+                <div class="project-meta-box">
+                    <div class="project-meta-row">
+                        <span class="project-meta-label">Domain:</span>
+                        <span class="project-meta-val">Conversational Search & Intent Prediction</span>
+                    </div>
+                    <div class="project-meta-row">
+                        <span class="project-meta-label">Stack:</span>
+                        <span class="project-meta-val">Python, Graph Algorithms, NLP, Probabilistic Modeling</span>
+                    </div>
+                    <div class="project-meta-row">
+                        <span class="project-meta-label">Award:</span>
+                        <span class="project-meta-val">TiVo Hackathon Finalist</span>
+                    </div>
+                </div>
+
+                <p>
+                    The <strong>Next Query Prediction Engine</strong> was developed during a TiVo Hackathon to accelerate conversational discovery in entertainment search systems.
+                </p>
+
+                <h2>The Challenge</h2>
+                <p>
+                    Voice and conversational search queries in media apps often suffer from conversational ambiguity. When a user asks: <em>"Find movies with Tom Cruise"</em>, their subsequent query might be a refinement (<em>"Only action from the 90s"</em>), an entity hop (<em>"Who directed the second one?"</em>), or a playback command (<em>"Play trailer"</em>).
+                </p>
+                <p>
+                    Standard search systems evaluate queries in isolation, missing contextual transitions that are highly predictable when framed across historical session logs.
+                </p>
+
+                <h2>Probabilistic Graph Modeling</h2>
+                <p>
+                    Rather than treating conversation as stateless search events, we modeled multi-turn search trajectories as <strong>probabilistic directed graph traversals</strong>:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Nodes:</strong> Semantic intent states (e.g., <code>[Entity: Actor]</code>, <code>[Filter: Genre]</code>, <code>[Action: Stream]</code>).
+                    </li>
+                    <li>
+                        <strong>Edges:</strong> Transition probabilities learned over aggregated session interaction graphs, weighted by user cohort and temporal decay.
+                    </li>
+                    <li>
+                        <strong>Predictive Prefetching:</strong> Allowed the search backend to pre-warm candidate entity result sets before the user finished speaking or typing their follow-up prompt.
+                    </li>
+                </ul>
+
+                <h2>Key Takeaways</h2>
+                <p>
+                    The system demonstrated that graph-structured intent modeling dramatically reduced perceived search latency while increasing conversational completion rates, paving the way for proactive conversational suggestion chips in smart TV interfaces.
+                </p>
+            </article>
+        </main>
+
+        <footer>
+            <span>© 2026 Sandeep Jangra</span>
+            <span><a href="../projects.html">← All Projects</a></span>
+        </footer>
+    </div>
+
+    <script src="../index.js"></script>
+</body>
+</html>

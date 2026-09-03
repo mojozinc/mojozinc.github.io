@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects & Tooling — Sandeep Jangra</title>
+    <meta name="description" content="Projects, developer tooling, and distributed systems experiments by Sandeep Jangra.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <!-- Inline script to prevent theme flashing on load -->
+    <script>
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.setAttribute('data-theme', savedTheme || (prefersDark ? 'dark' : 'light'));
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <a href="index.html">sandeep jangra</a>
+            </div>
+            <nav>
+                <a href="index.html#writing" class="nav-link">Writing</a>
+                <a href="index.html#experience" class="nav-link">Experience</a>
+                <a href="projects.html" class="nav-link active">Projects</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                    <!-- Icon loaded via JS -->
+                </button>
+            </nav>
+        </header>
+
+        <main>
+            <section class="intro" style="margin-bottom: 2.5rem;">
+                <h1 style="font-size: 1.8rem; margin-top: 0; margin-bottom: 0.75rem;">Projects & Tooling</h1>
+                <p>
+                    A collection of open-source tools, infrastructure systems, prototypes, and engineering experiments. Each project includes a detailed write-up covering its architecture, motivation, and trade-offs.
+                </p>
+            </section>
+
+            <div class="project-grid">
+                <!-- agent-deck -->
+                <div class="project-card">
+                    <div class="project-card-header">
+                        <div class="project-card-title">
+                            <a href="projects/agent-deck.html">agent-deck</a>
+                            <span class="badge badge-wip">WIP</span>
+                        </div>
+                        <span class="project-card-date">Rust • Desktop Tooling</span>
+                    </div>
+                    <div class="project-card-desc">
+                        A retro Winamp-inspired floating activity deck and multi-stream session monitor for AI coding agents (Gemini / Antigravity, Claude Code). Features real-time WSL2 bridge daemon, live <code>tmux</code> inspection, activity LEDs, and VU equalizers.
+                    </div>
+                    <div class="project-card-tags">
+                        <span class="project-tag">Rust</span>
+                        <span class="project-tag">egui / eframe</span>
+                        <span class="project-tag">tokio</span>
+                        <span class="project-tag">WSL2</span>
+                        <span class="project-tag">tmux</span>
+                        <span class="project-tag">AI HUD</span>
+                    </div>
+                    <div class="project-card-actions">
+                        <a href="projects/agent-deck.html" class="project-card-link-primary">Read Project Breakdown →</a>
+                        <a href="https://github.com/mojozinc/agent-deck" target="_blank" rel="noopener noreferrer" class="project-card-link-ext">GitHub ↗</a>
+                    </div>
+                </div>
+
+                <!-- MCP Agentic Engineering Pipeline -->
+                <div class="project-card">
+                    <div class="project-card-header">
+                        <div class="project-card-title">
+                            <a href="projects/mcp-agentic-pipeline.html">MCP Agentic Engineering Pipeline</a>
+                            <span class="badge badge-tag">AI Infra</span>
+                        </div>
+                        <span class="project-card-date">AI Infrastructure</span>
+                    </div>
+                    <div class="project-card-desc">
+                        Automated engineering orchestration connecting GitHub CI/CD, CodeRabbit, Linear, and Notion via Model Context Protocol (MCP) for deterministic context injection and autonomous agent execution.
+                    </div>
+                    <div class="project-card-tags">
+                        <span class="project-tag">MCP Protocol</span>
+                        <span class="project-tag">LLM Tooling</span>
+                        <span class="project-tag">Linear</span>
+                        <span class="project-tag">Notion API</span>
+                        <span class="project-tag">GitHub Actions</span>
+                    </div>
+                    <div class="project-card-actions">
+                        <a href="projects/mcp-agentic-pipeline.html" class="project-card-link-primary">Read Project Breakdown →</a>
+                    </div>
+                </div>
+
+                <!-- krocker-compose -->
+                <div class="project-card">
+                    <div class="project-card-header">
+                        <div class="project-card-title">
+                            <a href="projects/krocker-compose.html">krocker-compose</a>
+                            <span class="badge badge-tag">Tooling</span>
+                        </div>
+                        <span class="project-card-date">Developer Tooling</span>
+                    </div>
+                    <div class="project-card-desc">
+                        A Python CLI orchestrator built on Docker and <code>docker-compose</code> to configure and spin up complex multi-service conversational NLU environments in a single command, dramatically improving local developer iteration cycles.
+                    </div>
+                    <div class="project-card-tags">
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">Docker</span>
+                        <span class="project-tag">docker-compose</span>
+                        <span class="project-tag">NLU Services</span>
+                    </div>
+                    <div class="project-card-actions">
+                        <a href="projects/krocker-compose.html" class="project-card-link-primary">Read Project Breakdown →</a>
+                    </div>
+                </div>
+
+                <!-- Centralized Notification Platform -->
+                <div class="project-card">
+                    <div class="project-card-header">
+                        <div class="project-card-title">
+                            <a href="projects/centralized-notification-platform.html">Centralized Notification Platform</a>
+                            <span class="badge badge-tag">Production</span>
+                        </div>
+                        <span class="project-card-date">Sundial Hackathon → Production</span>
+                    </div>
+                    <div class="project-card-desc">
+                        Co-authored a centralized notification service from a hackathon prototype to production release, leveraging Novu to manage complex analytical page permissions, user mentions, and collaborative sharing workflows.
+                    </div>
+                    <div class="project-card-tags">
+                        <span class="project-tag">TypeScript</span>
+                        <span class="project-tag">Novu</span>
+                        <span class="project-tag">Redis</span>
+                        <span class="project-tag">PostgreSQL</span>
+                        <span class="project-tag">WebSockets</span>
+                    </div>
+                    <div class="project-card-actions">
+                        <a href="projects/centralized-notification-platform.html" class="project-card-link-primary">Read Project Breakdown →</a>
+                    </div>
+                </div>
+
+                <!-- Next Query Prediction Engine -->
+                <div class="project-card">
+                    <div class="project-card-header">
+                        <div class="project-card-title">
+                            <a href="projects/next-query-prediction.html">Next Query Prediction Engine</a>
+                            <span class="badge badge-tag">Hackathon</span>
+                        </div>
+                        <span class="project-card-date">Conversational Search</span>
+                    </div>
+                    <div class="project-card-desc">
+                        A conversational search system that models subsequent user queries as probabilistic graph traversals, maximizing the likelihood of quickly converging on user intent in natural language dialogues.
+                    </div>
+                    <div class="project-card-tags">
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">Graph Algorithms</span>
+                        <span class="project-tag">NLP</span>
+                        <span class="project-tag">Probabilistic Modeling</span>
+                    </div>
+                    <div class="project-card-actions">
+                        <a href="projects/next-query-prediction.html" class="project-card-link-primary">Read Project Breakdown →</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <span>© 2026 Sandeep Jangra</span>
+            <span><a href="index.html">Home</a></span>
+        </footer>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>

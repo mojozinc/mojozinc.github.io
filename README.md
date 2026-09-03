@@ -12,12 +12,24 @@ To write and publish a new article:
    - Update the `<h1>` title and meta dates/read-time under `<header class="article-header">`.
    - Write your thoughts using standard semantic HTML elements (like `<h2>`, `<p>`, `<code>`, `<pre>`, `<blockquote>`, `<ul>`, etc.).
 3. **Register the post**: Add the post to the `<ul class="post-list">` section in `index.html` with its date and title.
-4. **Deploy**: Push your changes to GitHub to update your live GitHub Pages site:
-   ```bash
-   git add .
-   git commit -m "Publish: [Title of your post]"
-   git push origin main
-   ```
+
+## Publishing a New Project
+
+To add a new project deep dive / case study:
+
+1. **Create the project page**: Create `projects/[project-name].html` (using `projects/agent-deck.html` as a reference).
+2. **Add screenshots/media**: Place images in `images/[project-name]/` and reference them via `<figure><img src="../images/[project-name]/preview.png"></figure>`.
+3. **Add card to `projects.html`**: Add a `.project-card` entry in `projects.html` with tags, description, and links.
+4. **(Optional) Add highlight on `index.html`**: Add a one-liner to the featured projects list in `index.html`.
+
+## Deployment
+
+Deploy by pushing to GitHub:
+```bash
+git add .
+git commit -m "Publish: [Title or update summary]"
+git push origin main
+```
 
 ## Development & Local Preview
 

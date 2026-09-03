@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCP Agentic Engineering Pipeline — Sandeep Jangra</title>
+    <meta name="description" content="Automated AI engineering workflows connecting GitHub, Linear, Notion, and CodeRabbit via Model Context Protocol.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../style.css">
+    <!-- Inline script to prevent theme flashing on load -->
+    <script>
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.setAttribute('data-theme', savedTheme || (prefersDark ? 'dark' : 'light'));
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <a href="../index.html">sandeep jangra</a>
+            </div>
+            <nav>
+                <a href="../index.html#writing" class="nav-link">Writing</a>
+                <a href="../index.html#experience" class="nav-link">Experience</a>
+                <a href="../projects.html" class="nav-link active">Projects</a>
+                <a href="../index.html#contact" class="nav-link">Contact</a>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                    <!-- Icon loaded via JS -->
+                </button>
+            </nav>
+        </header>
+
+        <main>
+            <a href="../projects.html" class="article-back">← Back to Projects</a>
+            
+            <article>
+                <header class="article-header">
+                    <h1 class="article-title" style="text-transform: lowercase;">mcp agentic engineering pipeline</h1>
+                    <div class="article-meta">AI Infrastructure • Workflow Automation</div>
+                </header>
+
+                <div class="project-meta-box">
+                    <div class="project-meta-row">
+                        <span class="project-meta-label">Domain:</span>
+                        <span class="project-meta-val">AI-Native Developer Tooling & Context Protocols</span>
+                    </div>
+                    <div class="project-meta-row">
+                        <span class="project-meta-label">Stack:</span>
+                        <span class="project-meta-val">Model Context Protocol (MCP), Linear API, Notion API, GitHub Actions, CodeRabbit</span>
+                    </div>
+                    <div class="project-meta-row">
+                        <span class="project-meta-label">Focus:</span>
+                        <span class="project-meta-val">Deterministic Context Injection & Autonomous Execution</span>
+                    </div>
+                </div>
+
+                <p>
+                    The <strong>MCP Agentic Engineering Pipeline</strong> is an orchestration framework that bridges team knowledge graphs, issue tracking, code reviews, and autonomous AI coding agents using the Model Context Protocol (MCP).
+                </p>
+
+                <h2>The Context Barrier in Agentic Coding</h2>
+                <p>
+                    Modern LLM coding agents are remarkably proficient at writing syntax, but they frequently fail on subtle domain boundaries: missing business constraints stored in Notion PRDs, unlinked acceptance criteria in Linear issues, or regression invariants discovered during previous pull request reviews.
+                </p>
+                <p>
+                    Manually copy-pasting context into prompt windows is fragile and defeats the productivity promise of agentic workflows.
+                </p>
+
+                <h2>Pipeline Architecture</h2>
+                <p>
+                    By implementing custom MCP servers and webhook dispatchers, the pipeline autonomously aggregates domain context before coding begins:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Issue & PRD Context Synthesis:</strong> When an issue transitions to an in-progress state, an MCP worker retrieves the relevant Linear issue, resolves linked Notion architecture specs, and distills exact boundary conditions.
+                    </li>
+                    <li>
+                        <strong>Deterministic Schema Guardrails:</strong> Injects live database schemas and SQL snapshot test suites directly into the agent's system context, ensuring generated queries adhere to relational constraints.
+                    </li>
+                    <li>
+                        <strong>Automated Review & Fix Loops:</strong> Connects CodeRabbit review comments and GitHub Actions test failures back into the agent context loop, allowing agents to self-correct lint, test, and formatting failures without human intervention.
+                    </li>
+                </ul>
+
+                <h2>Outcome</h2>
+                <blockquote>
+                    Enabled team engineers to delegate end-to-end bugfixes, chore tickets, and feature scaffolds directly to background agents with minimal human prompt scaffolding.
+                </blockquote>
+            </article>
+        </main>
+
+        <footer>
+            <span>© 2026 Sandeep Jangra</span>
+            <span><a href="../projects.html">← All Projects</a></span>
+        </footer>
+    </div>
+
+    <script src="../index.js"></script>
+</body>
+</html>
